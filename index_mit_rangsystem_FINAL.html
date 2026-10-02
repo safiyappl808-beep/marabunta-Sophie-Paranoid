@@ -1,0 +1,370 @@
+<!DOCTYPE html> <html lang="de"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marabunta Grande | Leader Bewerbung</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #080808;
+        color: #eeeeee;
+        line-height: 1.6;
+    }
+
+    /* Hintergrund */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+            radial-gradient(circle at 50% 0%, rgba(0, 174, 239, 0.12), transparent 35%),
+            linear-gradient(180deg, #0c0c0c 0%, #050505 100%);
+        z-index: -1;
+    }
+
+    /* Header */
+    header {
+        min-height: 430px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+        border-bottom: 1px solid #1d1d1d;
+    }
+
+    .header-content {
+        max-width: 900px;
+    }
+
+    .tag {
+        display: inline-block;
+        color: #00aeef;
+        border: 1px solid rgba(0, 174, 239, 0.5);
+        padding: 7px 15px;
+        border-radius: 30px;
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        font-size: clamp(45px, 8vw, 90px);
+        letter-spacing: 5px;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    .subtitle {
+        margin-top: 10px;
+        color: #999;
+        font-size: 18px;
+    }
+
+    .name {
+        margin-top: 25px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #00aeef;
+    }
+
+    /* Hauptbereich */
+    main {
+        width: min(950px, 92%);
+        margin: 70px auto;
+    }
+
+    .intro {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .intro h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .intro p {
+        color: #999;
+    }
+
+    /* Karten */
+    .question {
+        background: #101010;
+        border: 1px solid #202020;
+        border-radius: 14px;
+        padding: 28px;
+        margin-bottom: 20px;
+        transition: 0.25s ease;
+    }
+
+    .question:hover {
+        border-color: rgba(0, 174, 239, 0.5);
+        transform: translateY(-2px);
+    }
+
+    .number {
+        color: #00aeef;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .question h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .answer {
+        color: #c6c6c6;
+        font-size: 16px;
+    }
+
+    .highlight {
+        color: #00aeef;
+        font-weight: bold;
+    }
+
+
+    /* Rangsystem */
+    .rank-system { margin-top: 50px; }
+    .rank-system h2 { font-size: 30px; margin-bottom: 10px; text-align: center; }
+    .rank-system-intro { color: #999; text-align: center; margin-bottom: 25px; }
+    .ranks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .rank {
+        display: flex; align-items: center; gap: 16px; background: #101010;
+        border: 1px solid #202020; border-radius: 12px; padding: 16px 18px;
+        transition: 0.25s ease;
+    }
+    .rank:hover { border-color: rgba(0, 174, 239, 0.5); transform: translateY(-2px); }
+    .rank-number {
+        min-width: 38px; height: 38px; display: flex; align-items: center;
+        justify-content: center; border-radius: 50%; background: rgba(0, 174, 239, 0.1);
+        border: 1px solid rgba(0, 174, 239, 0.4); color: #00aeef; font-weight: bold;
+    }
+    .rank-name { font-weight: bold; color: #eeeeee; }
+    .leadership { margin-top: 45px; }
+    .leadership h2 { font-size: 30px; margin-bottom: 20px; text-align: center; }
+    .leader-card {
+        background: linear-gradient(135deg, rgba(0, 174, 239, 0.08), rgba(255,255,255,0.02));
+        border: 1px solid #202020; border-radius: 14px; padding: 24px; text-align: center;
+    }
+    .leader-role { color: #00aeef; font-size: 13px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .leader-name { font-size: 22px; font-weight: bold; }
+    @media (max-width: 600px) { .ranks { grid-template-columns: 1fr; } }
+
+    /* Schluss */
+    .closing {
+        margin-top: 60px;
+        padding: 35px;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 174, 239, 0.08),
+            rgba(255,255,255,0.02)
+        );
+        border: 1px solid #202020;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .closing h2 {
+        margin-bottom: 12px;
+    }
+
+    .closing p {
+        color: #aaa;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 30px 20px;
+        color: #555;
+        border-top: 1px solid #171717;
+        font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+        header {
+            min-height: 350px;
+        }
+
+        .question {
+            padding: 22px;
+        }
+
+        main {
+            margin-top: 45px;
+        }
+    }
+</style>
+
+</head> <body> <header> <div class="header-content">
+    <div class="tag">
+        Majestic RP
+    </div>
+
+    <h1>Marabunta Grande</h1>
+
+    <div class="subtitle">
+        Leader Bewerbung
+    </div>
+
+    <div class="name">
+        Sophie Paranoid
+    </div>
+
+</div>
+
+</header> <main>
+<div class="intro">
+    <h2>Meine Bewerbung</h2>
+    <p>
+        Bewerbung für die Leitung der Marabunta Grande.
+    </p>
+</div>
+
+
+<section class="question">
+    <div class="number">Frage 01</div>
+
+    <h3>Name und Nachname (IC)</h3>
+
+    <div class="answer">
+        Sophie Paranoid
+    </div>
+</section>
+
+
+<section class="question">
+    <div class="number">Frage 02</div>
+
+    <h3>Alter (OOC)</h3>
+
+    <div class="answer">
+        18 Jahre
+    </div>
+</section>
+
+
+<section class="question">
+    <div class="number">Frage 03</div>
+
+    <h3>Durchschnittliche Online-Zeit pro Tag</h3>
+
+    <div class="answer">
+        4–9 Stunden täglich
+    </div>
+</section>
+
+
+<section class="question">
+    <div class="number">Frage 04</div>
+
+    <h3>Einzigartige Ideen zur Entwicklung der Fraktion</h3>
+
+    <div class="answer">
+        Ich möchte die Marabunta Grande vor allem aktiv und gut organisiert halten.
+        Mir ist wichtig, dass die Mitglieder nicht nur da sind, sondern auch wirklich
+        RP machen und sich untereinander gut verstehen.
+
+        <br><br>
+
+        Außerdem würde ich gerne regelmäßige Aktionen und interne Trainings machen,
+        damit es innerhalb der Fraktion nicht langweilig wird.
+    </div>
+</section>
+
+
+<section class="question">
+    <div class="number">Frage 05</div>
+
+    <h3>Erfahrung im Spielen auf GTA 5 RP-Servern</h3>
+
+    <div class="answer">
+        Ich habe bereits Erfahrung auf Majestic RP gesammelt und war dort als
+        <span class="highlight">Admin</span> tätig.
+
+        <br><br>
+
+        Außerdem war ich als <span class="highlight">Recruit Lead</span> in einer
+        Crime-Fraktion tätig. Dadurch kenne ich sowohl die Arbeit innerhalb einer
+        Fraktion als auch den Umgang mit verschiedenen Spielern.
+    </div>
+</section>
+
+
+<section class="question">
+    <div class="number">Frage 06</div>
+
+    <h3>Wie viele Spieler würdest du mitbringen?</h3>
+
+    <div class="answer">
+        Ich würde ungefähr <span class="highlight">25+ Spieler</span> mitbringen.
+    </div>
+</section>
+
+
+<section class="question">
+    <div class="number">Frage 07</div>
+
+    <h3>Discord</h3>
+
+    <div class="answer">
+        <span class="highlight">naelo.010</span>
+        <br>
+        ID: 1555526883091939402
+    </div>
+</section>
+
+
+
+    <section class="rank-system">
+        <h2>Rangsystem</h2>
+        <p class="rank-system-intro">Die interne Rangstruktur der Marabunta Grande</p>
+        <div class="ranks">
+            <div class="rank"><div class="rank-number">1</div><div class="rank-name">Snitch</div></div>
+            <div class="rank"><div class="rank-number">2</div><div class="rank-name">Runner</div></div>
+            <div class="rank"><div class="rank-number">3</div><div class="rank-name">Homie</div></div>
+            <div class="rank"><div class="rank-number">4</div><div class="rank-name">Turfer</div></div>
+            <div class="rank"><div class="rank-number">5</div><div class="rank-name">Recru</div></div>
+            <div class="rank"><div class="rank-number">6</div><div class="rank-name">Turf-Lead</div></div>
+            <div class="rank"><div class="rank-number">7</div><div class="rank-name">Recru-Lead</div></div>
+            <div class="rank"><div class="rank-number">8</div><div class="rank-name">Street-Manager</div></div>
+            <div class="rank"><div class="rank-number">9</div><div class="rank-name">Vize OG</div></div>
+            <div class="rank"><div class="rank-number">10</div><div class="rank-name">OG</div></div>
+        </div>
+    </section>
+
+    <section class="leadership">
+        <h2>Fraktionsleitung</h2>
+        <div class="leader-card">
+            <div class="leader-role">Vize</div>
+            <div class="leader-name">Isa Paranoid</div>
+        </div>
+    </section>
+
+<div class="closing">
+
+    <h2>Schlusswort</h2>
+
+    <p>
+        Ich würde mich freuen, die Chance zu bekommen, die Marabunta Grande
+        zu leiten und gemeinsam mit meinen Leuten eine aktive Fraktion
+        aufzubauen. Durch meine bisherigen Erfahrungen auf Majestic RP
+        bringe ich bereits einiges an Erfahrung im Umgang mit Spielern
+        und innerhalb einer Crime-Fraktion mit.
+    </p>
+
+</div>
+
+</main> <footer> Marabunta Grande · Majestic RP · Leader Bewerbung </footer> </body> </html>
